@@ -49,7 +49,10 @@ class Verify(Resource):
             log.info(request.args.get("hub.verify_token"))
             if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
                 if not request.args.get("hub.verify_token") == const.PAGE_ACCESS_TOKEN:
+                    log.info("Verification token mismatch")
                     return "Verification token mismatch", 403
+                log.info("123")
+                log.info(request.args["hub.challenge"])
                 return request.args["hub.challenge"], 200
             return "Hello world", 200
 
