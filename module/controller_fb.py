@@ -16,7 +16,7 @@ from urllib.request import urlopen
 from pymessenger import Bot
 
 log = logpy.logging.getLogger(__name__)
-PAGE_ACCESS_TOKEN = const.PAGE_ACCESS_TOKEN
+PAGE_ACCESS_TOKEN = const.PAGE_ID
 bot = Bot(PAGE_ACCESS_TOKEN)
 
 def setup_route(api):
