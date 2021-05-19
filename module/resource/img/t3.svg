@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 186.22 155.18" style="enable-background:new 0 0 186.22 155.18;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#FED173;}
+	.st2{fill:#778E93;}
+	.st3{opacity:0.12;}
+	.st4{clip-path:url(#SVGID_2_);}
+	.st5{clip-path:url(#SVGID_4_);}
+</style>
+<g>
+	<g>
+		<defs>
+			<rect id="SVGID_1_" x="-438.82" y="-1396.93" width="1920" height="1080"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+	</g>
+</g>
+<g>
+	<polygon class="st0" points="62.07,124.14 124.14,62.07 0,62.07 	"/>
+	<polygon class="st2" points="124.14,62.07 62.07,0 0,62.07 	"/>
+	<polygon class="st0" points="155.18,31.04 124.14,0 93.11,31.04 	"/>
+	<polygon class="st1" points="124.15,62.07 93.11,93.11 124.15,124.14 	"/>
+	<polygon class="st0" points="186.22,62.07 124.15,62.07 124.15,124.14 	"/>
+	<polygon class="st1" points="186.22,62.07 155.18,31.04 93.11,31.04 124.15,62.07 	"/>
+	
+		<rect x="71.17" y="102.2" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 246.7344 146.0885)" class="st2" width="43.89" height="43.89"/>
+</g>
+</svg>

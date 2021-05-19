@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 366.71 672.3" style="enable-background:new 0 0 366.71 672.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#FED173;}
+	.st2{fill:#778E93;}
+	.st3{opacity:0.12;}
+	.st4{clip-path:url(#SVGID_2_);}
+	.st5{clip-path:url(#SVGID_4_);}
+</style>
+<g>
+	<defs>
+		<rect id="SVGID_3_" width="366.71" height="672.3"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+	</clipPath>
+	<g class="st4">
+		<g>
+			<polygon class="st1" points="61.12,611.19 -61.12,488.95 183.36,488.95 			"/>
+			<polygon class="st0" points="-61.12,488.95 61.12,366.71 183.36,488.95 			"/>
+			
+				<rect x="-43.22" y="567.96" transform="matrix(0.7071 0.7071 -0.7071 0.7071 432.1685 179.0147)" class="st0" width="86.43" height="86.43"/>
+		</g>
+		<g>
+			<polygon class="st2" points="-61.12,244.48 -183.36,122.24 61.12,122.24 			"/>
+			<polygon class="st0" points="-183.36,122.24 -61.12,0 61.12,122.24 			"/>
+			<polygon class="st0" points="122.23,61.12 183.35,122.24 122.23,183.36 			"/>
+			<polygon class="st0" points="61.12,244.48 0,305.6 -61.12,244.48 			"/>
+			<polygon class="st1" points="61.12,122.24 61.12,244.48 -61.12,244.48 			"/>
+			<polygon class="st2" points="122.23,61.12 61.12,122.24 61.12,244.48 122.24,183.36 			"/>
+			
+				<rect x="17.9" y="17.9" transform="matrix(0.7071 0.7071 -0.7071 0.7071 61.1181 -25.3142)" class="st1" width="86.43" height="86.43"/>
+		</g>
+		<g>
+			<polygon class="st1" points="244.47,427.83 366.71,305.59 122.23,305.59 			"/>
+			<polygon class="st2" points="366.71,305.59 244.47,183.35 122.23,305.59 			"/>
+			<polygon class="st2" points="61.11,244.47 0,305.59 61.11,366.71 			"/>
+			<polygon class="st1" points="122.23,427.83 183.35,488.95 244.47,427.83 			"/>
+			<polygon class="st0" points="122.23,305.59 122.23,427.83 244.47,427.83 			"/>
+			<polygon class="st1" points="61.11,244.47 122.23,305.59 122.23,427.83 61.11,366.71 			"/>
+			
+				<rect x="79.02" y="201.25" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 381.5319 330.9023)" class="st0" width="86.43" height="86.43"/>
+		</g>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,375 @@
+section {
+  padding: 80px 0;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+  background: #778E93;
+  border-left: 1px solid #d3d9e0;
+}
+::-webkit-scrollbar-thumb {
+  background: #b5c0cb;
+}
+.bg-post{
+  background: #eee;
+}
+h2{
+  font-size: 45px;
+}
+p{
+  font-size: 18px;
+  line-height: 1.7;
+}
+/* 
+---------------------------------------------
+NAV
+--------------------------------------------- 
+*/
+.navbar{
+  background:transparent;
+}
+.navbar .nav-link{
+   color: #fff;
+}
+.navbar.scrolled {
+  background:#778E93!important;
+  transition: background-color 200ms linear;
+}
+/* 
+---------------------------------------------
+banner
+--------------------------------------------- 
+*/
+.banner {
+  overflow: hidden;
+  position: relative;
+  justify-content: center;
+  background-image: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover; 
+  min-height: 90vh;
+  padding: 100px 0 150px;
+}
+/* 
+---------------------------------------------
+about
+--------------------------------------------- 
+*/
+.about{
+  background: #FED173;
+  color: #666;
+  padding: 50px 0 100px;
+}
+#about h2{
+  color: #778E93;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+/*
+#about h2:before{
+  content: "";
+  float: left;
+  width: 40px;
+  height: 33px;
+  margin: 2px 8px 0 0;
+  background: url(../img/t3.svg);
+}
+*/
+
+/* 
+---------------------------------------------
+intro
+--------------------------------------------- 
+*/
+.intro{
+  background: #778E93;
+  color: #fff;
+}
+.intro:before{
+  content: " ";
+  display: block;
+  width: 150px;
+  height: 275px;
+  margin-top: -205px;
+  background: no-repeat url(../img/deco.svg);
+  position: absolute;
+}
+.intro h2{
+  color: #FED173;
+  font-weight: bold;
+   margin-bottom: 20px;
+}
+/* 
+---------------------------------------------
+forum
+--------------------------------------------- 
+*/
+.forum{
+  background: #FED173;
+  color: #666;
+}
+.forum h2{
+  color: #778E93;
+  font-weight: bold;
+   margin-bottom: 20px;
+}
+.forum:{
+  content: " ";
+  display: block;
+  width: 150px;
+  height: 275px;
+  margin-top: -205px;
+  background: no-repeat url(../img/deco.svg);
+  position: absolute;
+  z-index: -1
+}
+
+/* 
+---------------------------------------------
+proposal
+--------------------------------------------- 
+*/
+.proposal{
+  background: #FED173;
+  padding:50px 0 0;
+}
+#proposal h2{
+  color: #778E93;
+  font-weight: bold;
+}
+.p-form{
+  background: #f8f9fa;
+  padding-top: 50px;
+  border-radius: 30px;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+}
+
+.postbtn {
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+  display: block;
+  width: 100px;
+  height: 100px;
+  padding: 18px;
+  font-size: 1.5em;
+  line-height:1.2em;
+  text-align: center;
+  color:#fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #5a99d4;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(90, 153, 212, 0.5);
+  -webkit-animation: pulse 1.5s infinite;
+}
+@-webkit-keyframes pulse {
+  0% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  70% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+  }
+  100% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+  }
+}
+/* 
+---------------------------------------------
+slogan
+--------------------------------------------- 
+*/
+.slogan{
+  padding: 50px 0;
+  background: #778E93;
+  color: #fff;
+}
+.slogan h2{
+  margin-bottom: 0;
+  letter-spacing: 0.05em;
+}
+/* 
+---------------------------------------------
+post
+--------------------------------------------- 
+*/
+
+.post{
+  padding:50px 0;
+  background-color: #fed173;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='540' height='450' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.03'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
+}
+.bg-post{
+  border-radius: 30px;
+  background: #f8f9fa;
+}
+.bg-post h2{
+  color: #778E93;
+  font-weight: bold;
+}
+.card-columns .card{
+  width: 100%;
+  background:none;
+  border:none;
+  margin-bottom: 0;
+}
+@media (min-width: 376px) {  
+  .card-columns { column-count: 1; } 
+} 
+@media (min-width: 768px) { 
+  .card-columns {  column-count: 2; } 
+}  
+@media (min-width: 992px) { 
+  .card-columns {  column-count: 4; } 
+}  
+@media (min-width: 1200px) { 
+  .card-columns {  column-count: 6; } 
+}
+.note { 
+  position: relative;
+  border-color: #DEE184;
+  width: 100%;
+  margin: 1.5em auto;
+  padding: 1.5em 1em 1em;
+  -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  text-align: left;
+  line-height: 1.7;
+  border-radius: 10px;
+}
+.note p{
+  font-size: 11px;
+}
+.notebg1{
+  background-color: #FED173;
+}
+.notebg2{
+  background-color: #fff;
+}
+.notebg3{
+  background-color: #778E93;
+  color: #fff;
+}
+.note:after {
+  display: block;
+  content: "";
+  position: absolute; 
+  width: 60%;
+  height: 20px;
+  top: -10px;
+  left: 20%;    
+  border: 1px solid #fff;
+  background: rgba(254, 254, 254, .6);
+  -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0px 0 3px rgba(0,0,0,0.1);  
+}
+.post-it .name{
+  display: block;
+  margin-top: 10px;
+  text-align: right;
+  margin-bottom: 0;
+}
+/* 
+---------------------------------------------
+footer
+--------------------------------------------- 
+*/
+footer {
+  background: #778E93;
+  padding: 20px 0;
+}
+
+.modal-content {
+  background: none;
+  border:none;
+}
+.modal {
+     background-color: rgba(0,0,0,.5) !important;
+}
+
+.form-container{
+    position: relative;
+    z-index: 1;
+}
+.form-container .form-horizontal{
+    background-color: #fff;
+    padding: 30px 30px 10px;
+    border: 1px solid #e7e7e7;
+}
+.form-container .form-horizontal:before,
+.form-container .form-horizontal:after{
+    content: '';
+    background-color: #778E93;
+    height: 100%;
+    width: 100%;
+    transform: rotate(3deg);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.form-container .form-horizontal:after{ 
+  transform: rotate(-3deg); 
+  background-color: #FED173;
+}
+
+.form-container .title{
+    color: #777;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 2px;
+    margin: 0 0 40px;
+}
+.form-horizontal .form-control{
+    color: #555;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 2px 10px;
+    box-shadow: none;
+    border-radius: 10px;
+    display: inline-block;
+    transition: all 0.3s;
+}
+.form-horizontal .form-control::placeholder{
+    color: rgba(0,0,0,0.7);
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.form-horizontal .btn{
+    color: #fff;
+    background: #778E93;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    width: 100px;
+    padding: 5px 18px;
+    margin: 0 0 15px 0;
+    border: none;
+    border-radius: 10px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+.form-horizontal .cancel{
+    font-size: 12px;
+    text-align: center;
+    padding:10px 0;
+    display: block;
+}
