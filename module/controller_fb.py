@@ -53,7 +53,8 @@ class Verify(Resource):
                     return "Verification token mismatch", 403
                 log.info("123")
                 log.info(request.args["hub.challenge"])
-                return request.args["hub.challenge"], 200
+                return "Hello world", 200
+                # return request.args["hub.challenge"], 200
             return "Hello world", 200
 
         except Exception as e:
