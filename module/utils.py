@@ -24,7 +24,6 @@ from datetime import datetime, timedelta
 from email.mime.text import MIMEText
 from email.header import Header
 from werkzeug.datastructures import ImmutableMultiDict
-from multicolorcaptcha import CaptchaGenerator
 
 
 log = logpy.logging.getLogger(__name__)
@@ -271,18 +270,3 @@ def JWTdecode(token):
 
 def validUser(user, password):
     return user == 'btc_admin' and str(password)==str('e6394a884019d7439bd24fa6de25e1bd')
-
-# ref > https://github.com/J-Rios/multicolorcaptcha
-def createCaptcha():
-    # Captcha image size number (2 -> 640x360)
-    CAPCTHA_SIZE_NUM = 2
-    # Create Captcha Generator object of specified size
-    generator = CaptchaGenerator(CAPCTHA_SIZE_NUM)
-    # Generate a captcha image
-    captcha = generator.gen_captcha_image(difficult_level=3)
-    # Get information
-    image = captcha["image"]
-    characters = captcha["characters"]
-    # Save the image to a file
-    image.save("captcha.png", "png")
-    return characters
