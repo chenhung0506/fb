@@ -6,6 +6,7 @@ import re
 import os, sys
 import const
 import controller
+import random
 import controller_recaptcha
 import controller_message
 import controller_fb
@@ -14,6 +15,8 @@ import flask_restful
 import utils
 import json
 import service
+import requests
+from flask import Flask, request
 from flask_restful import Api
 from flask_restful import Resource
 from datetime import datetime
@@ -24,28 +27,31 @@ from pymessenger import Bot
 
 utils.setLogFileName()
 log = logpy.logging.getLogger(__name__)
-template_dir = os.path.abspath('./resource/') # setting for render_template
-app = Flask(__name__, template_folder=template_dir)
-api = Api(app)
-controller.setup_route(api)
-controller_recaptcha.setup_route(api)
-controller_message.setup_route(api)
-controller_fb.setup_route(api)
-# setting for send_from_directory
-# app.static_folder = os.path.abspath("resource/university/")
-# app.static_url_path = os.path.abspath("resource/university/")
-app.config['CORS_HEADERS'] = 'Content-Type'
+app = Flask(__name__)
 
-if __name__=="__main__":
-    # utils.setLogFileName()
+token = const.ACCESS_TOKEN_HERE
+
+@app.route('/webhook', methods=['GET', 'POST'])
+def webhook():
+  if request.method == 'POST':
     try:
-        if not os.path.exists("./data_for_KG/"):
-            os.makedirs("./data_for_KG/")
-    except OSError as e:
-        log.info(e)
-    sched = BackgroundScheduler()
-    sched.start()
-    sched.add_job(utils.setLogFileName, CronTrigger.from_crontab('59 23 * * *'))
-    # controller.transmitProcess(None)
-    # sched.add_job(controller.transmitProcess, CronTrigger.from_crontab(const.TRANSMIT_CRON), [None])
-    app.run(host="0.0.0.0", port=const.PORT, debug=True, use_reloader=False)
+      data = json.loads(request.data)
+      text = data['entry'][0]['messaging'][0]['message']['text'] # Incoming Message Text
+      sender = data['entry'][0]['messaging'][0]['sender']['id'] # Sender ID
+      payload = {'recipient': {'id': sender}, 'message': {'text': "Hello World"}} # We're going to send this back
+      r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload) # Lets send it
+    except Exception as e:
+      log.info(e)
+  elif request.method == 'GET': # For the initial verification
+    log.indo(request.args.get('hub.verify_token'))
+    log.indo(const.VERIFY_TOKEN_HERE)
+    if request.args.get('hub.verify_token') == const.VERIFY_TOKEN_HERE:
+      log.info(request.args.get('hub.challenge'))
+      return request.args.get('hub.challenge')
+    log.info('Wrong Verify Token')
+    return "Wrong Verify Token"
+  log.info('Hello World')
+  return "Hello World" #Not Really Necessary
+
+if __name__ == '__main__':
+  app.run(host="0.0.0.0", port=const.PORT, debug=True)

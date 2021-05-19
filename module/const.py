@@ -11,8 +11,8 @@ PORT=os.environ.get('PORT', os.getenv('PORT'))
 LOG_LEVEL=os.environ.get('LOG_LEVEL', os.getenv('LOG_LEVEL'))
 LOG_FOLDER_PATH=os.environ.get('LOG_FOLDER_PATH', os.getenv('LOG_FOLDER_PATH'))
 
-PAGE_ID=os.environ.get('PAGE_ID', os.getenv('PAGE_ID')).replace("'", "")
-PAGE_ACCESS_TOKEN=os.environ.get('PAGE_ACCESS_TOKEN', os.getenv('PAGE_ACCESS_TOKEN')).replace("'", "")
+VERIFY_TOKEN_HERE=os.environ.get('VERIFY_TOKEN_HERE', os.getenv('VERIFY_TOKEN_HERE')).replace("'", "")
+ACCESS_TOKEN_HERE=os.environ.get('ACCESS_TOKEN_HERE', os.getenv('ACCESS_TOKEN_HERE')).replace("'", "")
 
 DB_HOST=os.environ.get('DB_HOST', os.getenv('DB_HOST'))
 DB_PORT=os.environ.get('DB_PORT', os.getenv('DB_PORT'))

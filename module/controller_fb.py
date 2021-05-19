@@ -16,8 +16,8 @@ from urllib.request import urlopen
 from pymessenger import Bot
 
 log = logpy.logging.getLogger(__name__)
-PAGE_ACCESS_TOKEN = const.PAGE_ID
-bot = Bot(PAGE_ACCESS_TOKEN)
+ACCESS_TOKEN_HERE = const.ACCESS_TOKEN_HERE
+bot = Bot(ACCESS_TOKEN_HERE)
 
 def setup_route(api):
     api.add_resource(Verify, '/')
@@ -53,7 +53,6 @@ class Verify(Resource):
                     return "Verification token mismatch", 403
                 log.info("123")
                 log.info(request.args["hub.challenge"])
-                # return "Hello world", 200
                 return request.args["hub.challenge"], 200
             return "Hello world", 200
 
