@@ -16,12 +16,8 @@ from urllib.request import urlopen
 from pymessenger import Bot
 
 log = logpy.logging.getLogger(__name__)
-PAGE_ACCESS_TOKEN = "EAAFNM3mDiKcBADHgSM1pE9iK8SElLsjwffYu4dahFs8EYTXI4lYKFx7s9zyIuQTEFHeG2a6vLdzBRZAzegp7AtSFD61iVVSzjPMyimqmzTSWLH2R3fOglZCyh7DG8IccP8l98ZAdX3yuZCtiZCRZAQ18Cph7PilwxQ2FweLXS1Bzr2LRHKFb1q"
+PAGE_ACCESS_TOKEN = const.PAGE_ACCESS_TOKEN
 bot = Bot(PAGE_ACCESS_TOKEN)
-
-
-# https://stackoverflow.com/questions/46393162/how-to-validate-a-recaptcha-response-server-side-with-python
-# https://codesandbox.io/s/n3p4y?file=/src/App.vue
 
 def setup_route(api):
     api.add_resource(Verify, '/')
@@ -50,8 +46,9 @@ class Verify(Resource):
     def get(self):
         try:
             # Webhook verification
+            log.info(request.args.get("hub.verify_token"))
             if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
-                if not request.args.get("hub.verify_token") == "EAAFNM3mDiKcBADHgSM1pE9iK8SElLsjwffYu4dahFs8EYTXI4lYKFx7s9zyIuQTEFHeG2a6vLdzBRZAzegp7AtSFD61iVVSzjPMyimqmzTSWLH2R3fOglZCyh7DG8IccP8l98ZAdX3yuZCtiZCRZAQ18Cph7PilwxQ2FweLXS1Bzr2LRHKFb1q":
+                if not request.args.get("hub.verify_token") == const.PAGE_ACCESS_TOKEN:
                     return "Verification token mismatch", 403
                 return request.args["hub.challenge"], 200
             return "Hello world", 200
