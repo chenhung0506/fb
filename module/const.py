@@ -13,6 +13,7 @@ LOG_FOLDER_PATH=os.environ.get('LOG_FOLDER_PATH', os.getenv('LOG_FOLDER_PATH'))
 
 VERIFY_TOKEN_HERE=os.environ.get('VERIFY_TOKEN_HERE', os.getenv('VERIFY_TOKEN_HERE')).replace("'", "")
 ACCESS_TOKEN_HERE=os.environ.get('ACCESS_TOKEN_HERE', os.getenv('ACCESS_TOKEN_HERE')).replace("'", "")
+PAYLOAD=os.environ.get('PAYLOAD', os.getenv('PAYLOAD'))
 
 DB_HOST=os.environ.get('DB_HOST', os.getenv('DB_HOST'))
 DB_PORT=os.environ.get('DB_PORT', os.getenv('DB_PORT'))
