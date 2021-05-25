@@ -9,7 +9,7 @@ WORK_PATH=$(dirname "$0")
 source ${WORK_PATH}/build.sh 
 
 ENV=dev.env
-export TAG='latest'
+export TAG='fb-test'
 export REPO=harbor.chlin.tk/python
 export CONTAINER=fb
 

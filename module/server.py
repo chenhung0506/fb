@@ -44,14 +44,18 @@ def webhook():
       if data['entry'][0]['messaging'][0].get('postback'):
         log.info(data['entry'][0]['messaging'][0]['postback'])
         payload = {'recipient': {'id': sender}, 'message': {'text': "請稍等客服將立即與您聯絡"}}
+        log.info(payload)
+        r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
       elif data['entry'][0]['messaging'][0].get('message'):
         text = data['entry'][0]['messaging'][0]['message']['text'] 
         log.info(text)
         log.info(sender)
         payload = {'recipient': {'id': sender}, 'message': json.loads(const.PAYLOAD)}
-    #   payload = {'recipient': {'id': sender}, 'message': {'text': "Hello World"}}
-      log.info(payload)
-      r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload) # Lets send it
+        log.info(payload)
+        r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
+        payload = {'recipient': {'id': sender}, 'message': {'text': "您好,感謝您與我們聯繫!如有問題請您先參考下方智慧櫃檯功能選項："}}
+        r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
+
     except Exception as e:
       log.error("post webhook error: "+utils.except_raise(e))
   elif request.method == 'GET': # For the initial verification
