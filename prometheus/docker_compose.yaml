@@ -1,0 +1,57 @@
+version: '3.7'
+volumes:
+    prometheus_data: {}
+    grafana_data: {}
+services:
+  prometheus:
+    image: prom/prometheus:v2.1.0
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+      - ./alert_rules.yaml:/etc/prometheus/alert_rules.yaml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yaml'
+    ports:
+      - '9090:9090'
+  grafana:
+    image: grafana/grafana
+    volumes:
+        - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=pass
+    depends_on:
+      - prometheus
+    ports:
+      - '3000:3000'
+  alertmanager:
+    image: prom/alertmanager
+    ports:
+      - 9093:9093
+    volumes:
+      - ./alertmanager.yaml/:/etc/alertmanager/alertmanager.yaml
+      - ./alert_rules.yaml:/etc/prometheus/alert_rules.yaml
+    restart: always
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yaml'
+      - '--storage.path=/alertmanager'
+  web:
+    image: harbor.chlin.tk/python/fb:latest
+    container_name: web
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/volumes/fb:/usr/src/app/logs
+    ports: 
+      - 5000:5000
+    environment:
+      - TZ=Asia/Taipei
+      - IS_LOADED=LOAD_ENV_FILE_SUCCESS
+      - PORT=5000
+      - LOG_LEVEL=INFO
+      - LOG_FOLDER_PATH=logs/
+      - VERIFY_TOKEN_HERE='123456'
+      - ACCESS_TOKEN_HERE='EAAFNM3mDiKcBALN4xxTQ9exRJnFc8SZB3aGg51b9kL6Pqbw5TY56Fv8i9ZBL6kEkk5xBikNRBtkZAq7YdRb5ZAheFWlf8ipB3ZByVyONx7D8N7uAmGdmkSAGrCGZBLx8zyy4hBzdV43xU1WjT9fvl0dZB3UZC1xZCyJtq7adCZAw4Ha4b79X8gQ1d4'
+      - DB_HOST=172.17.0.1
+      - DB_PORT=3306
+      - DB_ACCOUNT='root'
+      - DB_PASSWORD='password'
+    depends_on:
+      - prometheus

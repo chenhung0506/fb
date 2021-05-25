@@ -1,0 +1,10 @@
+groups:
+- name: example
+  rules:
+  - alert: HighRequestLatency
+    expr: request_count_total > 100
+    for: 10m
+    labels:
+      user: test
+    annotations:
+      summary: High request latency
