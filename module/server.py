@@ -44,19 +44,25 @@ def webhook():
       if data['entry'][0]['messaging'][0].get('postback'):
         log.info(data['entry'][0]['messaging'][0]['postback'])
         payload = {'recipient': {'id': sender}, 'message': {'text': "請稍等客服將立即與您聯絡"}}
-        log.info(payload)
+        # log.info(payload)
         r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
       elif data['entry'][0]['messaging'][0].get('message'):
         text = data['entry'][0]['messaging'][0]['message']['text'] 
         log.info(text)
         log.info(sender)
+
+
+        # reqUrl = "https://graph.facebook.com/v2.6/{USER_ID}?fields=name,age_range,ids_for_apps,ids_for_pages&access_token={PAGE_ACCESS_TOKEN}".format(USER_ID=sender, PAGE_ACCESS_TOKEN=const.ACCESS_TOKEN_HERE)
+        # log.info(reqUrl)
+        # r=requests.post(reqUrl)
+        # 32215da1449203f95965a4bf6e26aa06
+        # log.info(r)
+
         payload = {'recipient': {'id': sender}, 'message': {'text': "您好,感謝您與我們聯繫!如有問題請您先參考下方智慧櫃檯功能選項："}}
         r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
         payload = {'recipient': {'id': sender}, 'message': json.loads(const.PAYLOAD)}
-        log.info(payload)
         r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
-
-        payload = {'recipient': {'id': sender}, 'message': {"attachment":{"type":"template","payload":{"template_type":"button","text":"還有其他問題需要幫忙嗎？請點選下方按鈕由小幫手嗶寶協助您","buttons":[{"type":"web_url","url":"https://www.messenger.com","title":"小幫手嗶寶"}]}}}}
+        payload = {'recipient': {'id': sender}, 'message': {"attachment":{"type":"template","payload":{"template_type":"button","text":"還有其他問題需要幫忙嗎？請點選下方按鈕由小幫手嗶寶協助您","buttons":[{"type":"web_url","url":"https://www.messenger.com",'title':'<img src="https://i.postimg.cc/y8zszNpM/bibo-icon.jpg">小幫手嗶寶'}]}}}}
         r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
         payload = {'recipient': {'id': sender}, 'message': {'text': "或是您可以撥打本公司客服中心：412-8880按1後再按7轉接專員(手機及金馬地區請加02)。"}}
         r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
