@@ -2,7 +2,7 @@ groups:
 - name: example
   rules:
   - alert: HighRequestLatency
-    expr: request_count_total > 100
+    expr: request_count_total > 10
     for: 10m
     labels:
       user: test
