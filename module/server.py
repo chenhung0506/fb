@@ -51,14 +51,20 @@ def webhook():
         log.info(text)
         log.info(sender)
 
+        username = ''
+        try:
+          # 'https://graph.facebook.com/v2.6/2357988760980771?fields=name&access_token=EAAGJwZCK6hFUBANZCXTgn9pc6YnvBZBwKFGYHUjVEop2ZBT1CDBpg40G6WDyt8nIjiUe2nKZCr3fZBVAi29QoDL6SeZCDtOoGQXjb4hoTsf0sp1MZCZBOWjXVw420V7QSEUGFlF2ZCTFIvVD3aeapAkiSCmnz7HJGRHLuLMSwrIiTmS90RgCqSSi4V'
+          reqUrl = "https://graph.facebook.com/v2.6/{USER_ID}?fields=name&access_token={PAGE_ACCESS_TOKEN}".format(USER_ID=sender, PAGE_ACCESS_TOKEN=const.ACCESS_TOKEN_HERE)
+          log.info(reqUrl)
+          headers = { "Content-Type": "application/json" }
+          r = utils.get_request( reqUrl, headers)
+          jsonResponse = json.loads(r.text)
+          username = jsonResponse.get("name")
+          log.info(username)
+        except Exception as e:
+          log.error("post webhook error: "+utils.except_raise(e))
 
-        reqUrl = "https://graph.facebook.com/v2.6/{USER_ID}?fields=name&access_token={PAGE_ACCESS_TOKEN}".format(USER_ID=sender, PAGE_ACCESS_TOKEN=const.ACCESS_TOKEN_HERE)
-        log.info(reqUrl)
-        r=requests.post(reqUrl)
-        # 32215da1449203f95965a4bf6e26aa06
-        log.info(r)
-
-        payload = {'recipient': {'id': sender}, 'message': {'text': "您好,感謝您與我們聯繫!如有問題請您先參考下方智慧櫃檯功能選項："}}
+        payload = {'recipient': {'id': sender}, 'message': {'text': username + "您好,感謝您與我們聯繫!如有問題請您先參考下方智慧櫃檯功能選項："}}
         r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
         payload = {'recipient': {'id': sender}, 'message': json.loads(const.PAYLOAD)}
         r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload)
@@ -70,7 +76,7 @@ def webhook():
 
     except Exception as e:
       log.error("post webhook error: "+utils.except_raise(e))
-  elif request.method == 'GET': # For the initial verification
+  elif request.method == 'GET': 
     log.info(request.args.get('hub.verify_token'))
     log.info(const.VERIFY_TOKEN_HERE)
     if request.args.get('hub.verify_token') == const.VERIFY_TOKEN_HERE:

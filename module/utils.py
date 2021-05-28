@@ -5,6 +5,8 @@ import service
 import const
 import os
 import csv
+import json
+import requests
 import smtplib, ssl
 import pysftp
 import paramiko
@@ -14,6 +16,7 @@ import unicodedata
 import string
 import jwt
 from ftplib import FTP
+from urllib import parse
 from base64 import decodebytes
 from threading import Timer,Thread,Event
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -270,3 +273,38 @@ def JWTdecode(token):
 
 def validUser(user, password):
     return user == 'btc_admin' and str(password)==str('e6394a884019d7439bd24fa6de25e1bd')
+
+
+
+def post_request(url, headers, data):
+    try:
+        if headers.get("Content-Type") == "application/json":
+            log.debug("application/json")
+            data = json.dumps(data)
+        elif headers.get("Content-Type") == "application/x-www-form-urlencoded":
+            log.debug("application/x-www-form-urlencoded")
+            data = parse.urlencode(data)
+
+        log.info("call api: " + str(url) + "\nwith data: " + str(json.dumps(data)))
+        log.info("header: " + str(json.dumps(headers)))
+        response = requests.request("POST", url, data=data, headers=headers)
+        if response.status_code != 200:
+            raise Exception('Response status: ' + str(response.status_code) + ', message: ' + response.text)
+        return response
+
+    except Exception as e:
+        log.error(except_raise(e))
+        raise Exception(e)
+
+def get_request(url, headers):
+    try:
+        log.info("call api: " + url)
+        log.debug("header: " + str(headers))
+        response = requests.request("GET", url, headers=headers)
+        if response.status_code != 200:
+            raise Exception('Response status: ' + str(response.status_code) + ', message: ' + response.text)
+        return response
+
+    except Exception as e:
+        log.error(except_raise(e))
+        raise Exception(e)

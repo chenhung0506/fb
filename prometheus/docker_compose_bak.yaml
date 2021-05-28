@@ -41,4 +41,4 @@ services:
             - DB_PORT=3306
             - DB_ACCOUNT='root'
             - DB_PASSWORD='password'
-            
+# https://blog.techbridge.cc/2019/08/26/how-to-use-prometheus-grafana-in-flask-app/
